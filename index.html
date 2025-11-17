@@ -84,9 +84,51 @@
 </head>
 <body>
   <h1>4 lines for $100 套餐预估工具</h1>
+  <h2>此工具仅为套餐计算使用 请当它是一个简单的计算器 请不要私自上传到小红书等平台 谢谢</h2>
+  <h2>有任何问题 请联系tmobile销售 </h2>
+  <h2>如果被发现私自上传 主页会挂上您上传的截屏图片及您的ID 直到您删除 谢谢</h2>
+  <p style="text-align:center;">（仅供估算使用，具体金额以系统为准）</p>
 
   <div class="card">
     <h2>基础信息</h2>
+    
+    
+    
+
+    <div class="row">
+      <div class="col">
+        <label for="carrier">当前运营商</label>
+        <select id="carrier">
+          <option value="">请选择运营商</option>
+          <option value="verizon">Verizon</option>
+          <option value="att">AT&amp;T</option>
+          <option value="spectrum">Spectrum Mobile</option>
+          <option value="visible">Visible</option>
+          <option value="xfinity">Xfinity Mobile</option>
+        </select>
+        <small>⚠️ Mint Mobile 和 Metro 因为是 T-Mobile 旗下品牌，不能做转网优惠。Google-fi, Cricket, Boost, 和US Cellular也不可以</small>
+      </div>
+
+      <div class="col">
+        <label for="accountType">当前账号类型</label>
+        <select id="accountType">
+          <option value="">请选择账号类型</option>
+          <option value="postpaid">Postpaid（月付）</option>
+          <option value="prepaid">Prepaid（预付费）</option>
+        </select>
+        <small>⚠️仅 Postpaid 账户可以做这个活动，Prepaid 不能做。</small>
+      </div>
+
+      <div class="col">
+        <label for="ssn">是否有 SSN</label>
+        <select id="ssn">
+          <option value="">请选择</option>
+          <option value="yes">有 SSN</option>
+          <option value="no">没有 SSN</option>
+        </select>
+        <small>⚠️办理 T-Mobile 4 lines for $100 套餐需要 SSN。</small>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col">
@@ -113,6 +155,7 @@
           <option value="5">5 部</option>
           <option value="6">6 部</option>
         </select>
+        <small>合约机：T-Mobile 最多可帮做 $800 买断，同时该条线不能再领手机，只能转号。</small>
       </div>
 
       <div class="col">
@@ -132,7 +175,7 @@
       <div class="col">
         <label for="deposit">预估押金总金额（USD）</label>
         <input id="deposit" type="number" min="0" step="1" value="0" placeholder="例如：240（目前无法预估 会在最后订手机页面显示）">
-        <small>填写 240 方便计算</small>
+        <small>押金会在 24 个月平均返还到每个月账单里。目前无法预估，会在最后订手机页面才会显示，可以填写 240 方便计算</small>
         
       </div>
       <div class="col">
