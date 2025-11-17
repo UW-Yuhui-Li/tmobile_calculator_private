@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <title>4 lines for $100套餐</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    label {
+      display: block;
+      margin: 8px 0 4px;
+      font-weight: 600;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    .row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .col {
+      flex: 1;
+      min-width: 200px;
+    }
+    button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      background: #e20074; /* T-Mobile 品牌色 */
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .result-line {
+      margin: 4px 0;
+    }
+    .highlight {
+      font-size: 18px;
+      font-weight: 700;
+      color: #e20074;
+    }
+    .phone-row {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 8px;
+      background: #fafafa;
+    }
+    small {
+      color: #666;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>4 lines for $100 套餐预估工具</h1>
+  <h2>此工具仅为套餐计算使用 请当它是一个简单的计算器 请不要私自上传到小红书等平台 谢谢</h2>
+  <h2>有任何问题 请联系tmobile销售 </h2>
+  <h2>如果被发现私自上传 主页会挂上您上传的截屏图片及您的ID 直到您删除 谢谢</h2>
+  <p style="text-align:center;">（仅供估算使用，具体金额以系统为准）</p>
+
+  <div class="card">
+    <h2>基础信息</h2>
+    
+    
+    
+
+    <div class="row">
+      <div class="col">
+        <label for="carrier">当前运营商</label>
+        <select id="carrier">
+          <option value="">请选择运营商</option>
+          <option value="verizon">Verizon</option>
+          <option value="att">AT&amp;T</option>
+          <option value="spectrum">Spectrum Mobile</option>
+          <option value="visible">Visible</option>
+          <option value="xfinity">Xfinity Mobile</option>
+        </select>
+        <small>⚠️ Mint Mobile 和 Metro 因为是 T-Mobile 旗下品牌，不能做转网优惠。Google-fi, Cricket, Boost, 和US Cellular也不可以</small>
+      </div>
+
+      <div class="col">
+        <label for="accountType">当前账号类型</label>
+        <select id="accountType">
+          <option value="">请选择账号类型</option>
+          <option value="postpaid">Postpaid（月付）</option>
+          <option value="prepaid">Prepaid（预付费）</option>
+        </select>
+        <small>⚠️仅 Postpaid 账户可以做这个活动，Prepaid 不能做。</small>
+      </div>
+
+      <div class="col">
+        <label for="ssn">是否有 SSN</label>
+        <select id="ssn">
+          <option value="">请选择</option>
+          <option value="yes">有 SSN</option>
+          <option value="no">没有 SSN</option>
+        </select>
+        <small>⚠️办理 T-Mobile 4 lines for $100 套餐需要 SSN。</small>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="lines">转入几条线？（1–6）</label>
+        <select id="lines">
+          <option value="1">1 条</option>
+          <option value="2">2 条</option>
+          <option value="3">3 条</option>
+          <option value="4" selected>4 条</option>
+          <option value="5">5 条</option>
+          <option value="6">6 条</option>
+        </select>
+        <small>前 4 条线包含在 4 lines for $100 套餐内，从第 5 条线开始，每多一条 税后 +$30/月。次套餐上限6条线</small>
+      </div>
+
+      <div class="col">
+        <label for="contractLines">有几部其他运营商的合约机？</label>
+        <select id="contractLines">
+          <option value="0" selected>0 部</option>
+          <option value="1">1 部</option>
+          <option value="2">2 部</option>
+          <option value="3">3 部</option>
+          <option value="4">4 部</option>
+          <option value="5">5 部</option>
+          <option value="6">6 部</option>
+        </select>
+        <small>合约机：T-Mobile 最多可帮做 $800 买断，同时该条线不能再领手机，只能转号。</small>
+      </div>
+
+      <div class="col">
+        <label for="phones">想拿几部 iPhone 17（最多 4 部，且不能超过非合约机条数）</label>
+        <select id="phones">
+          <option value="0">0 部</option>
+          <option value="1">1 部</option>
+          <option value="2">2 部</option>
+          <option value="3">3 部</option>
+          <option value="4" selected>4 部</option>
+        </select>
+        <small id="phonesHint"></small>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="deposit">预估押金总金额（USD）</label>
+        <input id="deposit" type="number" min="0" step="1" value="0" placeholder="例如：240（目前无法预估 会在最后订手机页面显示）">
+        <small>押金会在 24 个月平均返还到每个月账单里。目前无法预估，会在最后订手机页面才会显示，可以填写 240 方便计算</small>
+        
+      </div>
+      <div class="col">
+        <label for="phoneTaxRate">手机商品税税率（%）</label>
+        <input id="phoneTaxRate" type="number" min="0" step="0.01" value="7.75" placeholder="例如 Irvine 是：7.75%">
+        <small>用于计算第一天买手机需要交的税。例如 Irvine 是：7.75%"</small>
+      </div>
+    </div>
+
+    <p>
+      <strong>套餐说明：</strong>本工具按 <strong>4 lines for $100 套餐</strong> 计算，<br>
+      4 条线基础费用 $100 + 税后约为：$120/月；<br>
+      超过第 4 条线后，每多 1 条线 税后 +$30/月
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>选择 iPhone 17 型号</h2>
+    <div id="phonesContainer">
+      <!-- JS 动态插入每部手机的选择 -->
+    </div>
+    <small>说明：T-Mobile 对每部手机最多抵扣 $830，超过的部分会分 24 个月摊到每个月账单里。</small>
+  </div>
+
+  <div class="card">
+    <button id="calcBtn">计算预估费用</button>
+  </div>
+
+  <div class="card">
+    <h2>计算结果（估算）</h2>
+    <div id="result">
+      <p>请先填写上面的信息，然后点击“计算预估费用”。</p>
+    </div>
+  </div>
+
+  <script>
+    // iPhone 17 系列价格表
+    const PHONE_MODELS = [
+      { id: "17-256",  label: "iPhone 17 256GB - $830",  price: 830 },
+      { id: "17-512",  label: "iPhone 17 512GB - $1100", price: 1100 },
+      { id: "17p-256", label: "iPhone 17 Pro 256GB - $1100", price: 1100 },
+      { id: "17p-512", label: "iPhone 17 Pro 512GB - $1300", price: 1300 },
+      { id: "17p-1tb", label: "iPhone 17 Pro 1TB - $1500", price: 1500 },
+      { id: "17pm-256", label: "iPhone 17 Pro Max 256GB - $1200", price: 1200 },
+      { id: "17pm-512", label: "iPhone 17 Pro Max 512GB - $1400", price: 1400 },
+      { id: "17pm-1tb", label: "iPhone 17 Pro Max 1TB - $1600", price: 1600 },
+      { id: "17pm-2tb", label: "iPhone 17 Pro Max 2TB - $2000", price: 2000 }
+    ];
+
+    const MAX_CREDIT = 830;                    // 每部最高抵扣
+    const PLAN_MONTHLY_BASE_FOR_4 = 120;       // 前 4 条线总月费（含税约）
+
+    const linesSelect = document.getElementById("lines");
+    const contractLinesSelect = document.getElementById("contractLines");
+    const phonesSelect = document.getElementById("phones");
+    const phonesContainer = document.getElementById("phonesContainer");
+    const phonesHint = document.getElementById("phonesHint");
+    const calcBtn = document.getElementById("calcBtn");
+    const resultDiv = document.getElementById("result");
+
+    const accountTypeSelect = document.getElementById("accountType");
+    const ssnSelect = document.getElementById("ssn");
+    const depositInput = document.getElementById("deposit");
+    const phoneTaxRateInput = document.getElementById("phoneTaxRate");
+
+    // 控制后续输入是否可用
+    function setInputsDisabled(disabled) {
+      // 不能动的：accountType, ssn, carrier 保持可用
+      [linesSelect, contractLinesSelect, phonesSelect, depositInput, phoneTaxRateInput].forEach(el => {
+        el.disabled = disabled;
+      });
+      calcBtn.disabled = disabled;
+    }
+
+    // 根据 Postpaid/Prepaid + SSN 判断是否可以继续
+    function checkEligibility(showMessage = true) {
+      const accountType = accountTypeSelect.value;
+      const ssn = ssnSelect.value;
+
+      if (!accountType) {
+        setInputsDisabled(true);
+        phonesContainer.innerHTML = "";
+        phonesHint.textContent = "";
+        if (showMessage) {
+          resultDiv.innerHTML = `<p>⚠️ 请先选择客户当前是 <strong>Postpaid（月付）</strong> 还是 <strong>Prepaid（预付费）</strong>。</p>`;
+        }
+        return false;
+      }
+
+      if (accountType === "prepaid") {
+        setInputsDisabled(true);
+        phonesContainer.innerHTML = "";
+        phonesHint.textContent = "";
+        if (showMessage) {
+          resultDiv.innerHTML = `<p>⚠️ 当前为 <strong>Prepaid 预付费账户</strong>，此活动仅支持 <strong>Postpaid 月付账户</strong>，Prepaid 暂时做不了。</p>`;
+        }
+        return false;
+      }
+
+      if (!ssn) {
+        setInputsDisabled(true);
+        phonesContainer.innerHTML = "";
+        phonesHint.textContent = "";
+        if (showMessage) {
+          resultDiv.innerHTML = `<p>⚠️ 请先选择客户 <strong>是否有 SSN</strong>，没有 SSN 暂时无法办理这个活动。</p>`;
+        }
+        return false;
+      }
+
+      if (ssn === "no") {
+        setInputsDisabled(true);
+        phonesContainer.innerHTML = "";
+        phonesHint.textContent = "";
+        if (showMessage) {
+          resultDiv.innerHTML = `<p>⚠️ 当前客户 <strong>没有 SSN</strong>，暂时无法办理 4 lines for $100 + iPhone 17 活动。</p>`;
+        }
+        return false;
+      }
+
+      // Postpaid + 有 SSN → 可以继续
+      setInputsDisabled(false);
+      
+      return true;
+    }
+
+    // 根据当前可拿手机数量，限制“想拿几部手机”的选项
+    function updatePhonesLimit(updateMessage = true) {
+      const lines = parseInt(linesSelect.value, 10) || 0;
+      let contractLines = parseInt(contractLinesSelect.value, 10) || 0;
+
+      if (contractLines > lines) {
+        contractLines = lines;
+        contractLinesSelect.value = String(lines);
+      }
+
+      const eligiblePhones = Math.max(Math.min(lines - contractLines, 4), 0); // 可领手机的最大数量
+
+      if (updateMessage) {
+        if (eligiblePhones === 0) {
+          phonesHint.textContent = "当前合约机条数与转入线数相同，此活动下暂时不能领取 iPhone 17，只能转号。";
+        } else {
+          phonesHint.textContent = `当前最多可领取 ${eligiblePhones} 部 iPhone 17（不能超过非合约机条数，最多 4 部）。`;
+        }
+      }
+
+      let currentPhones = parseInt(phonesSelect.value, 10) || 0;
+      if (currentPhones > eligiblePhones) {
+        currentPhones = eligiblePhones;
+        phonesSelect.value = String(eligiblePhones);
+      }
+
+      createPhoneSelectors(currentPhones);
+    }
+
+    function createPhoneSelectors(count) {
+      phonesContainer.innerHTML = "";
+      const phoneCount = count;
+
+      for (let i = 0; i < phoneCount; i++) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "phone-row";
+
+        const label = document.createElement("label");
+        label.textContent = `第 ${i + 1} 部手机型号：`;
+
+        const select = document.createElement("select");
+        select.className = "phone-model";
+        PHONE_MODELS.forEach(model => {
+          const option = document.createElement("option");
+          option.value = model.id;
+          option.textContent = model.label;
+          select.appendChild(option);
+        });
+
+        wrapper.appendChild(label);
+        wrapper.appendChild(select);
+        phonesContainer.appendChild(wrapper);
+      }
+    }
+
+    // 监听：账号类型 / SSN / 线数 / 合约机条数 / 想拿几部手机 的变化
+    accountTypeSelect.addEventListener("change", () => {
+      checkEligibility(true);
+    });
+
+    ssnSelect.addEventListener("change", () => {
+      checkEligibility(true);
+    });
+
+    linesSelect.addEventListener("change", () => {
+      if (!checkEligibility(false)) return;
+      updatePhonesLimit();
+    });
+
+    contractLinesSelect.addEventListener("change", () => {
+      if (!checkEligibility(false)) return;
+      updatePhonesLimit();
+    });
+
+    phonesSelect.addEventListener("change", () => {
+      if (!checkEligibility(false)) return;
+      const lines = parseInt(linesSelect.value, 10) || 0;
+      const contractLines = parseInt(contractLinesSelect.value, 10) || 0;
+      const eligiblePhones = Math.max(Math.min(lines - contractLines, 4), 0);
+      let phones = parseInt(phonesSelect.value, 10) || 0;
+
+      if (phones > eligiblePhones) {
+        phones = eligiblePhones;
+        phonesSelect.value = String(eligiblePhones);
+      }
+      createPhoneSelectors(phones);
+    });
+
+    // 初始状态：先检查 Postpaid/SSN，再决定是否启用后续输入
+    checkEligibility(true);
+
+    calcBtn.addEventListener("click", () => {
+      if (!checkEligibility(true)) return;
+
+      const lines = Math.min(parseInt(linesSelect.value, 10) || 1, 6);
+      const contractLines = Math.min(parseInt(contractLinesSelect.value, 10) || 0, lines);
+
+      const eligiblePhones = Math.max(Math.min(lines - contractLines, 4), 0);
+      let phones = Math.min(parseInt(phonesSelect.value, 10) || 0, eligiblePhones);
+
+      if (phones !== parseInt(phonesSelect.value, 10)) {
+        phonesSelect.value = String(phones);
+        createPhoneSelectors(phones);
+      }
+
+      const deposit = parseFloat(depositInput.value) || 0;
+      const phoneTaxRate = (parseFloat(phoneTaxRateInput.value) || 0) / 100;
+
+      const phoneSelectElements = document.querySelectorAll(".phone-model");
+
+      let totalPhonePrice = 0;
+      let totalDiff = 0;
+      let phoneDetails = [];
+
+      phoneSelectElements.forEach((select, index) => {
+        if (index >= phones) return;
+
+        const selectedId = select.value;
+        const model = PHONE_MODELS.find(m => m.id === selectedId);
+        if (!model) return;
+
+        const price = model.price;
+        const diff = Math.max(price - MAX_CREDIT, 0);
+
+        totalPhonePrice += price;
+        totalDiff += diff;
+
+        phoneDetails.push({
+          name: model.label,
+          price,
+          diff
+        });
+      });
+
+      // 每部手机差价分 24 期
+      const diffMonthly = totalDiff / 24;
+
+      // 押金每月返还
+      const depositMonthlyCredit = deposit / 24;
+
+      // 套餐部分：4 条线约 120，美金；第 5/6 条线每条 +30
+      const extraLines = Math.max(lines - 4, 0);
+      const extraLinesCost = extraLines * 30;
+      const planMonthlyTotal = PLAN_MONTHLY_BASE_FOR_4 + extraLinesCost;
+
+      // 保险：每部手机 18 美金，前四个月要交
+      const insuranceMonthly = 18 * phones;
+
+      // 前四个月月费用
+      const first4MonthsMonthly = planMonthlyTotal + insuranceMonthly + diffMonthly - depositMonthlyCredit;
+
+      // 第五个月开始月费用
+      const from5thMonthMonthly = planMonthlyTotal + diffMonthly - depositMonthlyCredit;
+
+      // 第一天费用：40 开卡费 + 商品税 + 押金
+      const activationFee = 40;
+      const phoneTaxDay1 = totalPhonePrice * phoneTaxRate;
+      const day1Total = activationFee + phoneTaxDay1 + deposit;
+
+      // 输出结果
+      let html = "";
+
+      html += `<div class="result-line highlight"> 第一天预计需支付：$${day1Total.toFixed(2)}</div>`;
+      html += `<div class="result-line">其中包含：</div>`;
+      html += `<div class="result-line">• 开卡费：$${activationFee.toFixed(2)}</div>`;
+      html += `<div class="result-line">• 所有手机商品税（约）：$${phoneTaxDay1.toFixed(2)}</div>`;
+      html += `<div class="result-line">• 押金（预估）：$${deposit.toFixed(2)}</div>`;
+      html += `<hr/>`;
+
+      html += `<div class="result-line highlight"> 前四个月每个月预计账单：$${first4MonthsMonthly.toFixed(2)}</div>`;
+      html += `<div class="result-line">= 套餐（前 4 条线含税约 $${PLAN_MONTHLY_BASE_FOR_4.toFixed(2)} `;
+      if (extraLines > 0) {
+        html += `+ 额外 ${extraLines} 条线 $${extraLinesCost.toFixed(2)}`;
+      }
+      html += ` 共 $${planMonthlyTotal.toFixed(2)}） + 保险 $${insuranceMonthly.toFixed(2)} + 手机差价月供 $${diffMonthly.toFixed(2)} - 押金返还 $${depositMonthlyCredit.toFixed(2)}</div>`;
+      html += `<hr/>`;
+
+      html += `<div class="result-line highlight"> 第五个月开始每个月预计账单：$${from5thMonthMonthly.toFixed(2)}</div>`;
+      html += `<div class="result-line">= 套餐 $${planMonthlyTotal.toFixed(2)} + 手机差价月供 $${diffMonthly.toFixed(2)} - 押金返还 $${depositMonthlyCredit.toFixed(2)}</div>`;
+      html += `<hr/>`;
+
+      html += `<h3> 计算差价</h3>`;
+      html += `<div class="result-line">总手机原价：$${totalPhonePrice.toFixed(2)}</div>`;
+      html += `<div class="result-line">理论最高抵扣：每部最多 $${MAX_CREDIT.toFixed(2)}，实际总差价：$${totalDiff.toFixed(2)}</div>`;
+      html += `<div class="result-line">总差价月供（24 期）：$${diffMonthly.toFixed(2)}</div>`;
+
+      if (phoneDetails.length > 0) {
+        html += `<ul>`;
+        phoneDetails.forEach((p, idx) => {
+          html += `<li>第 ${idx + 1} 部：${p.name}，原价 $${p.price.toFixed(2)}，差价 $${p.diff.toFixed(2)}</li>`;
+        });
+        html += `</ul>`;
+      } else {
+        html += `<div class="result-line">当前未选择领取 iPhone 17，仅计算套餐与押金部分。</div>`;
+      }
+
+      html += `<hr/>`;
+      html += `<div class="result-line"><strong>合约机说明：</strong>当前设置为 ${contractLines} 部合约机，所以这 ${contractLines} 条线不能再领取 iPhone 17，只能转号（最多每部可做 $800 买断）。</div>`;
+      html += `<small>⚠️ 此工具仅为粗略估算，实际账单以 T-Mobile 系统为准。</small>`;
+
+      resultDiv.innerHTML = html;
+    });
+  </script>
+</body>
+</html>
